@@ -218,7 +218,6 @@ with st.sidebar:
         sig = "✅ Significant" if moran_p < 0.05 else "❌ Not significant"
         st.markdown(f"**Clustering:** {sig}")
     st.markdown("---")
-    st.markdown("*Final Year Project · Data Science*")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -299,7 +298,7 @@ if page == "📊 Overview":
             else:
                 st.info(f"Moran's I = {moran_i} | p-value = {moran_p} — No significant clustering.")
         with col2:
-            st.info("**What this means for your project:**  \nThe spatial pattern is statistically proven — not random. This justifies using spatial methods (LISA, Gi*) and spatial features in the ML models.")
+            st.info("**What this means for this project:**  \nThe spatial pattern is statistically proven, not random. This justifies using spatial methods (LISA, Gi*) and spatial features in the ML models.")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -307,7 +306,7 @@ if page == "📊 Overview":
 # ══════════════════════════════════════════════════════════════════════════════
 elif page == "🗺️ Interactive Map":
     st.markdown("# 🗺️ Interactive Map")
-    st.markdown("Use the layer control (top right of map) to switch between views. Click any county for details.")
+    st.markdown("Click any county for details.")
 
     layer_choice = st.selectbox("Select layer to display:", [
         "GBV Rate per 100k",
@@ -398,7 +397,7 @@ elif page == "🗺️ Interactive Map":
 # ══════════════════════════════════════════════════════════════════════════════
 elif page == "📅 Temporal Analysis":
     st.markdown("# 📅 Temporal Analysis — How Hotspots Shifted (2016–2023)")
-    st.markdown("*This is the most original part of the project — showing how GBV hotspots evolved year by year.*")
+    st.markdown("*This is the most original part of this project — showing how GBV hotspots have evolved year by year.*")
     st.markdown("---")
 
     yearly = (df_fem.dropna(subset=["county", "year"])
