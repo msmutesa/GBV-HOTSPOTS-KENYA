@@ -488,6 +488,19 @@ elif page == "🤖 Model Comparison":
     }
     df_results = pd.DataFrame(results).set_index("Model")
 
+    st.markdown("### Performance table")
+st.dataframe(df_results, use_container_width=True)
+
+st.markdown("### 3 features vs 7 features — what changed?")
+df_exp = pd.DataFrame({
+    "Experiment":  ["3 spatial features", "7 features (spatial + behavioural)"],
+    "KNN (K=11) F1": [0.84, 0.80],
+    "Random Forest F1": [0.82, 0.98],
+    "Winner": ["KNN", "Random Forest"],
+})
+st.dataframe(df_exp, use_container_width=True, hide_index=True)
+st.caption("Adding behavioural features flipped the winner — Random Forest handles complexity better.")
+
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown("""<div class="metric-card">
@@ -503,18 +516,7 @@ elif page == "🤖 Model Comparison":
             <div class="metric-label">Recall — hotspot detection</div></div>""", unsafe_allow_html=True)
 
     st.markdown("---")
-   st.markdown("### Performance table")
-st.dataframe(df_results, use_container_width=True)
 
-st.markdown("### 3 features vs 7 features — what changed?")
-df_exp = pd.DataFrame({
-    "Experiment":  ["3 spatial features", "7 features (spatial + behavioural)"],
-    "KNN (K=11) F1": [0.84, 0.80],
-    "Random Forest F1": [0.82, 0.98],
-    "Winner": ["KNN", "Random Forest"],
-})
-st.dataframe(df_exp, use_container_width=True, hide_index=True)
-st.caption("Adding behavioural features flipped the winner — Random Forest handles complexity better.")
     # Bar chart
     st.markdown("### Visual comparison")
     metrics  = ["F1 — High risk", "F1 — Low risk", "Macro avg F1"]
