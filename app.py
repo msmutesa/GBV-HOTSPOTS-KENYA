@@ -496,7 +496,7 @@ elif page == "🤖 Model Comparison":
     with col2:
         st.markdown("""<div class="metric-card">
             <div class="metric-value">0.98</div>
-            <div class="metric-label">KNN F1 — High risk</div></div>""", unsafe_allow_html=True)
+            <div class="metric-label">Random Forest F1 — High risk</div></div>""", unsafe_allow_html=True)
     with col3:
         st.markdown("""<div class="metric-card">
             <div class="metric-value" style="color:#1D9E75">1.00</div>
