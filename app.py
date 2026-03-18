@@ -478,28 +478,28 @@ elif page == "🤖 Model Comparison":
 
     # Results table
     results = {
-        "Model":      ["KNN (K=5)", "Random Forest"],
-        "F1 — High risk":  [0.84, 0.82],
-        "F1 — Low risk":   [0.81, 0.79],
-        "Precision":       [0.76, "--"],
-        "Recall":          [0.95, "--"],
-        "Accuracy":        [0.83, "--"],
-        "Macro avg F1":    [0.83, 0.81],
+       "Model":           ["KNN (K=11)", "Random Forest"],
+    "F1 — High risk":  [0.83, 0.98],
+    "F1 — Low risk":   [0.78, 0.98],
+    "Precision":       [0.73, 0.95],
+    "Recall":          [0.95, 1.00],
+    "Accuracy":        [0.80, 0.98],
+    "Macro avg F1":    [0.80, 0.98],
     }
     df_results = pd.DataFrame(results).set_index("Model")
 
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown("""<div class="metric-card">
-            <div class="metric-value" style="color:#1D9E75">KNN</div>
+            <div class="metric-value" style="color:#1D9E75">Random Forest</div>
             <div class="metric-label">Winning model</div></div>""", unsafe_allow_html=True)
     with col2:
         st.markdown("""<div class="metric-card">
-            <div class="metric-value">0.84</div>
+            <div class="metric-value">0.98</div>
             <div class="metric-label">KNN F1 — High risk</div></div>""", unsafe_allow_html=True)
     with col3:
         st.markdown("""<div class="metric-card">
-            <div class="metric-value" style="color:#1D9E75">0.95</div>
+            <div class="metric-value" style="color:#1D9E75">1.00</div>
             <div class="metric-label">Recall — hotspot detection</div></div>""", unsafe_allow_html=True)
 
     st.markdown("---")
