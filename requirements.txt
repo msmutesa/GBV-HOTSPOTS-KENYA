@@ -1,0 +1,15 @@
+streamlit
+pandas
+geopandas
+numpy
+matplotlib
+folium
+streamlit-folium
+scikit-learn
+libpysal
+esda
+scipy
+branca
+openpyxl
+requests
+seaborn
