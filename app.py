@@ -397,7 +397,7 @@ elif page == "🗺️ Interactive Map":
 # ══════════════════════════════════════════════════════════════════════════════
 elif page == "📅 Temporal Analysis":
     st.markdown("# 📅 Temporal Analysis — How Hotspots Shifted (2016–2023)")
-    st.markdown("*This is the most original part of this project — showing how GBV hotspots have evolved year by year.*")
+    st.markdown("*This part shows how GBV hotspots have evolved year by year.*")
     st.markdown("---")
 
     yearly = (df_fem.dropna(subset=["county", "year"])
