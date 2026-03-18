@@ -71,7 +71,7 @@ def fix_county(name):
 @st.cache_data
 def load_all_data():
     # Femicide
-    df_fem = pd.read_excel("data/femicide_2016.xlsx")
+    df_fem = pd.read_excel("femicide_2016.xlsx")
     df_fem["county"] = df_fem["county"].apply(fix_county)
     df_fem["type_of_femicide"] = df_fem["type_of_femicide"].str.strip().str.title().replace(
         {"Non-intimate": "Non-Intimate"}).fillna("Unknown")
@@ -80,7 +80,7 @@ def load_all_data():
     df_fem["year"] = pd.to_datetime(df_fem["published_date"], errors="coerce").dt.year
 
     # Population
-    df_pop = pd.read_csv("data/kenya_population_distribution_2019census.csv")
+    df_pop = pd.read_csv("kenya_population_distribution_2019census.csv")
     df_pop = df_pop[df_pop["County"].str.upper() != "KENYA"].copy()
     df_pop["county"] = df_pop["County"].apply(fix_county)
     df_pop["population"] = df_pop["Total"].astype(str).str.replace(",", "").pipe(pd.to_numeric, errors="coerce")
