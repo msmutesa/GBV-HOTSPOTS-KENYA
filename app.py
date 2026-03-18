@@ -503,9 +503,18 @@ elif page == "🤖 Model Comparison":
             <div class="metric-label">Recall — hotspot detection</div></div>""", unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("### Performance table")
-    st.dataframe(df_results, use_container_width=True)
+   st.markdown("### Performance table")
+st.dataframe(df_results, use_container_width=True)
 
+st.markdown("### 3 features vs 7 features — what changed?")
+df_exp = pd.DataFrame({
+    "Experiment":  ["3 spatial features", "7 features (spatial + behavioural)"],
+    "KNN (K=11) F1": [0.84, 0.80],
+    "Random Forest F1": [0.82, 0.98],
+    "Winner": ["KNN", "Random Forest"],
+})
+st.dataframe(df_exp, use_container_width=True, hide_index=True)
+st.caption("Adding behavioural features flipped the winner — Random Forest handles complexity better.")
     # Bar chart
     st.markdown("### Visual comparison")
     metrics  = ["F1 — High risk", "F1 — Low risk", "Macro avg F1"]
@@ -531,14 +540,23 @@ elif page == "🤖 Model Comparison":
     st.pyplot(fig, use_container_width=True)
 
     st.markdown("---")
-    st.markdown("### Why KNN won")
-    st.info("""**KNN outperformed Random Forest because GBV distribution in Kenya is inherently spatial.**
+    st.markdown("### Why Random Forest won with 7 features")
+st.info("""**Random Forest outperformed KNN (K=11) when the feature set 
+was expanded from 3 to 7 features (F1 = 0.98 vs 0.80).**
 
-KNN classifies a county based on the risk profile of its nearest neighbours — which directly mirrors the spatial autocorrelation confirmed by Moran's I. Counties bordering high-risk areas face similar socioeconomic and cultural conditions, making geographic proximity a strong predictor of GBV risk.
+Random Forest is an ensemble method — it builds hundreds of decision trees 
+and combines their votes. With richer features (IPV rate, incident trend, 
+stranger rate, spatial lag, Gi* z-score), it can learn complex non-linear 
+relationships between variables that KNN cannot.
 
-The recall of **0.95 for high-risk counties** means KNN correctly identified 19 out of 20 actual hotspot counties — critical for a public health application where missing a real hotspot is more costly than a false alarm.""")
+Interestingly, with only 3 spatial features KNN outperformed Random Forest 
+(F1 = 0.84 vs 0.82), showing that geographic proximity alone is a strong 
+signal. But as feature complexity grew, Random Forest's ability to handle 
+high-dimensional data gave it the edge.
 
-
+The perfect recall of **1.00 for high-risk counties** means Random Forest 
+missed zero actual GBV hotspot counties — critical for a public health 
+intervention system.""")
 # ══════════════════════════════════════════════════════════════════════════════
 # PAGE 5 — COUNTY RISK TABLE
 # ══════════════════════════════════════════════════════════════════════════════
