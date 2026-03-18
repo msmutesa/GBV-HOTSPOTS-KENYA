@@ -101,7 +101,7 @@ def load_all_data():
     df_merged["gbv_rate_per_100k"] = df_merged["gbv_rate_per_100k"].fillna(0)
 
     # Shapefile
-    shapefile = "data/kenya_counties.geojson"
+    shapefile = "kenya_counties.geojson"
     if not os.path.exists(shapefile):
         r = requests.get("https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_KEN_1.json", timeout=60)
         open(shapefile, "wb").write(r.content)
