@@ -477,15 +477,15 @@ elif page == "🤖 Model Comparison":
     st.markdown("---")
 
     # Results table
-    results = {
-       "Model":           ["KNN (K=11)", "Random Forest"],
+   results = {
+    "Model":           ["KNN (K=11)", "Random Forest"],
     "F1 — High risk":  [0.83, 0.98],
     "F1 — Low risk":   [0.78, 0.98],
     "Precision":       [0.73, 0.95],
     "Recall":          [0.95, 1.00],
     "Accuracy":        [0.80, 0.98],
     "Macro avg F1":    [0.80, 0.98],
-    }
+}
     df_results = pd.DataFrame(results).set_index("Model")
 
     st.markdown("### Performance table")
