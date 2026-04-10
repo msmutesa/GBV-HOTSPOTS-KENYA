@@ -218,7 +218,7 @@ with st.sidebar:
         sig = "✅ Significant" if moran_p < 0.05 else "❌ Not significant"
         st.markdown(f"**Clustering:** {sig}")
     st.markdown("---")
-    st.markdown("*Final Year Project · Data Science*")
+    st.markdown("*GBV HOTSPOTS PREDICTIONS*")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
