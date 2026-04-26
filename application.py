@@ -337,7 +337,7 @@ with st.spinner("Loading data and running spatial analysis…"):
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image("C:/Users/HomePC/Documents/SCHOOL/GBV PROJECT/kenya.jpg", width=150)
+    st.image("kenya.jpg", width=150)
     st.markdown("## 🗺️ GBV Hotspot Prediction")
     st.markdown("**Kenya — 2016–2023**")
     st.markdown("---")
