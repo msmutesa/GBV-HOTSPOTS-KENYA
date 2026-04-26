@@ -436,7 +436,7 @@ if page == "📊 Overview":
             else:
                 st.info(f"Moran's I = {moran_i} | p-value = {moran_p} — No significant clustering.")
         with col2:
-            st.info("**What this means for your project:**  \nThe spatial pattern is statistically proven — not random. This justifies using spatial methods (LISA, Gi*) and spatial features in the ML models.")
+            st.info("**What this means :**  \nThe spatial pattern is statistically proven and not random. This justifies using spatial methods (LISA, Gi*) and spatial features in the ML models.")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
